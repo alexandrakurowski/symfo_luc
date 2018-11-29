@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaire{% endblock %}
+
+{% block body %}
+
+{% for article in article %}
+	<p>{{article.nom}}</p>
+	<p>{{article.contenu}}</p>
+	<img width="300" height="350" src="{{article.lienImage}}"></img>
+	
+
+		{% for i in commentaire %}
+		 	{% if i.fkarticle == article %}
+				<p>{{i.pseudo}}</p>
+				<p>{{i.contenu}}</p>
+			{%endif%}
+		{% endfor %}	
+	
+
+
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes articles !{% endblock %}
+
+{% block body %}
+
+<style >
+
+.bold
+{
+
+	font-weight:bold
+}
+.marge
+{
+	margin-left: 5%;
+}
+
+</style>
+
+
+
+<div class="article">
+
+
+{% for article in article %}
+
+	<h3> Articles n° {{article.id}} </h3>
+
+	<p>{{article.nom}}</p>
+	<p>{{article.contenu}}</p>
+	<img width="300" height="350" src="{{article.lienImage}}"></img>
+
+
+
+
+
+	
+		 		<h4>Commentaires</h4>
+				{% for i in commentaire %}
+				 	{% if i.fkarticle == article %}
+		 		<!-- <p class="bold marge">Pseudo : </p><span class="marge">{{i.pseudo}}</span> -->
+				<p class="bold  "> Commentaire de {{i.pseudo}} </p> <span class="marge">{{i.contenu}}</span>
+
+			{%endif%}
+		{% endfor %}
+	{% endfor %}
+	</div>
+
+
+
+
+
+
+
+
+{% endblock %}
